@@ -10,6 +10,26 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>dangdang-dao</artifactId>
-
+    <dependencies>
+        <!--MySQL的驱动包-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.18</version>
+        </dependency>
+        <!--引入数据访问的公共组件，注意这个组件在 192.168.0.200上。所以必须使用0.200这台私服库
+           这里面包含，数据库底层数据源的支持，包括数据库的分页查询-->
+        <dependency>
+            <groupId>com.fc</groupId>
+            <artifactId>platform-commons</artifactId>
+            <version>1.1.1-SNAPSHOT</version>
+        </dependency>
+        <!--添加了一个用户执行公共操作的组件包，比如判断空对象-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
+    </dependencies>
 
 </project>
