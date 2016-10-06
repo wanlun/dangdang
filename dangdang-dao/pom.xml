@@ -30,5 +30,12 @@
             <version>3.1</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>nexus</name>
+            <url>http://192.168.0.200:8081/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
 
 </project>
