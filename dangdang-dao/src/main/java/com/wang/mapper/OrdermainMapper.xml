@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.OrdermainMapper">
+
+    <sql id="ordermainBaseColumnSql">
+        ordermainId,
+        orderId,
+        bookId,
+        price,
+        number
+    </sql>
+
+    <sql id="ordermainBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.ordermainId)">
+                    ordermainId = #{map.ordermainId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.orderId)">
+                    AND orderId = #{map.orderId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookId)">
+                    AND bookId = #{map.bookId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.price)">
+                    AND price = #{map.price}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.number)">
+                    AND number = #{map.number}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertOrdermain" parameterType="com.wang.entity.Ordermain">
+        INSERT INTO ordermain(
+        <include refid="ordermainBaseColumnSql"/>
+        )VALUES(
+            #{ordermainId},
+            #{orderId},
+            #{bookId},
+            #{price},
+            #{number}
+        )
+    </insert>
+
+    
+    <delete id="deleteOrdermainByOrdermainId" parameterType="Integer">
+        DELETE FROM ordermain WHERE ordermainId = #{ordermainId}
+    </delete>
+
+    <update id="updateOrdermain" parameterType="com.wang.entity.Ordermain">
+        UPDATE ordermain
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(orderId)">
+                orderId = #{orderId} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(bookId)">
+                bookId = #{bookId} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(price)">
+                price = #{price} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(number)">
+                number = #{number} ,
+            </if>
+        </set>
+        WHERE ordermainId = #{ordermainId}
+    </update>
+
+    <select id="searchOrdermainByParams" parameterType="map" resultMap="ordermainMap">
+        SELECT
+        <include refid="ordermainBaseColumnSql"/>
+        FROM ordermain
+        <include refid="ordermainBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.wang.entity.Ordermain" id="ordermainMap">
+        <id column="ordermainId" property="ordermainId"/>
+        <result column="orderId" property="orderId"/>
+        <result column="bookId" property="bookId"/>
+        <result column="price" property="price"/>
+        <result column="number" property="number"/>
+    </resultMap>
+
+</mapper>

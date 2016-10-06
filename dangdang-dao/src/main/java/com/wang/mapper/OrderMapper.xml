@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.OrderMapper">
+
+    <sql id="orderBaseColumnSql">
+        orderId,
+        userId,
+        creatTime,
+        orderprice,
+        orderStatu
+    </sql>
+
+    <sql id="orderBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.orderId)">
+                    orderId = #{map.orderId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userId)">
+                    AND userId = #{map.userId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.creatTime)">
+                    AND creatTime = #{map.creatTime}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.orderprice)">
+                    AND orderprice = #{map.orderprice}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.orderStatu)">
+                    AND orderStatu = #{map.orderStatu}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertOrder" parameterType="com.wang.entity.Order">
+        INSERT INTO order(
+        <include refid="orderBaseColumnSql"/>
+        )VALUES(
+            #{orderId},
+            #{userId},
+            #{creatTime},
+            #{orderprice},
+            #{orderStatu}
+        )
+    </insert>
+
+    
+    <delete id="deleteOrderByOrderId" parameterType="Integer">
+        DELETE FROM order WHERE orderId = #{orderId}
+    </delete>
+
+    <update id="updateOrder" parameterType="com.wang.entity.Order">
+        UPDATE order
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userId)">
+                userId = #{userId} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(creatTime)">
+                creatTime = #{creatTime} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(orderprice)">
+                orderprice = #{orderprice} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(orderStatu)">
+                orderStatu = #{orderStatu} ,
+            </if>
+        </set>
+        WHERE orderId = #{orderId}
+    </update>
+
+    <select id="searchOrderByParams" parameterType="map" resultMap="orderMap">
+        SELECT
+        <include refid="orderBaseColumnSql"/>
+        FROM order
+        <include refid="orderBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.wang.entity.Order" id="orderMap">
+        <id column="orderId" property="orderId"/>
+        <result column="userId" property="userId"/>
+        <result column="creatTime" property="creatTime"/>
+        <result column="orderprice" property="orderprice"/>
+        <result column="orderStatu" property="orderStatu"/>
+    </resultMap>
+
+</mapper>

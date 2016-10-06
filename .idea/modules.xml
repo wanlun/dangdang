@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D://dangdang/dangdang.iml" filepath="D://dangdang/dangdang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dangdang.iml" filepath="$PROJECT_DIR$/dangdang.iml" />
       <module fileurl="file://$PROJECT_DIR$/dangdang-dao/dangdang-dao.iml" filepath="$PROJECT_DIR$/dangdang-dao/dangdang-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dangdang-web/dangdang-web.iml" filepath="$PROJECT_DIR$/dangdang-web/dangdang-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/dangdang-web/dangdang-web.iml" filepath="$PROJECT_DIR$/dangdang-web/dangdang-web.iml" />
     </modules>
   </component>

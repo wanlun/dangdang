@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.BookMapper">
+
+    <sql id="bookBaseColumnSql">
+        bookId,
+        bookName,
+        bookPrice,
+        bookStor,
+        bookPic
+    </sql>
+
+    <sql id="bookBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookId)">
+                    bookId = #{map.bookId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookName)">
+                    AND bookName = #{map.bookName}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookPrice)">
+                    AND bookPrice = #{map.bookPrice}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookStor)">
+                    AND bookStor = #{map.bookStor}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.bookPic)">
+                    AND bookPic = #{map.bookPic}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertBook" parameterType="com.wang.entity.Book">
+        INSERT INTO book(
+        <include refid="bookBaseColumnSql"/>
+        )VALUES(
+            #{bookId},
+            #{bookName},
+            #{bookPrice},
+            #{bookStor},
+            #{bookPic}
+        )
+    </insert>
+
+    
+    <delete id="deleteBookByBookId" parameterType="Integer">
+        DELETE FROM book WHERE bookId = #{bookId}
+    </delete>
+
+    <update id="updateBook" parameterType="com.wang.entity.Book">
+        UPDATE book
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(bookName)">
+                bookName = #{bookName} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(bookPrice)">
+                bookPrice = #{bookPrice} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(bookStor)">
+                bookStor = #{bookStor} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(bookPic)">
+                bookPic = #{bookPic} ,
+            </if>
+        </set>
+        WHERE bookId = #{bookId}
+    </update>
+
+    <select id="searchBookByParams" parameterType="map" resultMap="bookMap">
+        SELECT
+        <include refid="bookBaseColumnSql"/>
+        FROM book
+        <include refid="bookBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.wang.entity.Book" id="bookMap">
+        <id column="bookId" property="bookId"/>
+        <result column="bookName" property="bookName"/>
+        <result column="bookPrice" property="bookPrice"/>
+        <result column="bookStor" property="bookStor"/>
+        <result column="bookPic" property="bookPic"/>
+    </resultMap>
+
+</mapper>

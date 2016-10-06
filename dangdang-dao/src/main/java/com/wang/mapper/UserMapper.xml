@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wang.mapper.UserMapper">
+
+    <sql id="userBaseColumnSql">
+        userId,
+        userName,
+        passWord,
+        Email
+    </sql>
+
+    <sql id="userBaseWhereSql">
+        <if test="map!=null">
+            <where>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userId)">
+                    userId = #{map.userId}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.userName)">
+                    AND userName = #{map.userName}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.passWord)">
+                    AND passWord = #{map.passWord}
+                </if>
+                <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(map.email)">
+                    AND Email = #{map.email}
+                </if>
+            </where>
+        </if>
+    </sql>
+
+    <insert id="insertUser" parameterType="com.wang.entity.User">
+        INSERT INTO user(
+        <include refid="userBaseColumnSql"/>
+        )VALUES(
+            #{userId},
+            #{userName},
+            #{passWord},
+            #{email}
+        )
+    </insert>
+
+    
+    <delete id="deleteUserByUserId" parameterType="Integer">
+        DELETE FROM user WHERE userId = #{userId}
+    </delete>
+
+    <update id="updateUser" parameterType="com.wang.entity.User">
+        UPDATE user
+        <set>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userName)">
+                userName = #{userName} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(passWord)">
+                passWord = #{passWord} ,
+            </if>
+            <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(email)">
+                Email = #{email} ,
+            </if>
+        </set>
+        WHERE userId = #{userId}
+    </update>
+
+    <select id="searchUserByParams" parameterType="map" resultMap="userMap">
+        SELECT
+        <include refid="userBaseColumnSql"/>
+        FROM user
+        <include refid="userBaseWhereSql"/>
+    </select>
+
+    <resultMap type="com.wang.entity.User" id="userMap">
+        <id column="userId" property="userId"/>
+        <result column="userName" property="userName"/>
+        <result column="passWord" property="passWord"/>
+        <result column="Email" property="email"/>
+    </resultMap>
+
+</mapper>
