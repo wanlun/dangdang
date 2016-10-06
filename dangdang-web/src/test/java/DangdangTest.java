@@ -1,6 +1,5 @@
 import com.wang.Starapplication;
-import com.wang.serivces.BooksServices;
-import com.wang.serivces.UserServices;
+
 import com.wang.serivces.UserServicesImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +17,8 @@ public class DangdangTest {
       private UserServicesImpl  userServicesImpl;
     @Test
       public void  one(){
+       int s= userServicesImpl.check("张三","123");
+        System.out.println(s);
 
       }
 }
