@@ -9,7 +9,7 @@
         </encoder>
     </appender>
    <!-- <logger name="com.hzit.employee.core.mapper" level="DEBUG"/>-->
-    <logger name="com.wang.dao.mapper" level="DEBUG"/>
+    <logger name="com.wang.mapper" level="DEBUG"/>
 
 
 <!--    <root level="INFO">
