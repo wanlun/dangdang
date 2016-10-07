@@ -39,7 +39,7 @@
 		$.post("check",{"userName":$("#name").val(),"passWord":$("#mima").val()},function(data){
 			if(data==1){
 				alert("登录成功");
-				location="/WEB-INF/jsp/orderlist.jsp";
+				location="denglu";
 			}
 			else{
 				alert("用户不存在，请注册");

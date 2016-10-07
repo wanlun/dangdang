@@ -57,16 +57,17 @@
     $("#a5").click(function(){
       $.post("add",$("#hah").serialize(),function(date){
         if(data==1){
-          alert("注册成功");
-          location="addok";
+            alert("注册成功");
+            location="addok";
         }
-        else
-        alert("注册失败");
-         location.reload();
+        else{
+           alert("注册失败");
+           location.reload();
+        }
 
-      })
-    })
-  })
+      });
+    });
+  });
 
 </script>
 

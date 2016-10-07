@@ -22,8 +22,15 @@ public class UserMapperControll {
     @ResponseBody
     public int check(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord){
         int s= userServices.check(userName,passWord);
-        return s;
+         return s;
     }
+
+    @RequestMapping("/denglu")
+    public String denglu () {
+        return "orderlist";
+
+    }
+
 
 
         @RequestMapping("/add")
