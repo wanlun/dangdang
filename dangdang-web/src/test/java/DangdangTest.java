@@ -1,6 +1,8 @@
 import com.wang.Starapplication;
 
-import com.wang.serivces.impl.UserServices;
+import com.wang.entity.User;
+import com.wang.serivces.impl.UserService;
+
 
 
 import org.junit.Test;
@@ -16,10 +18,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringApplicationConfiguration(value=Starapplication.class)
 public class DangdangTest {
      @Autowired
-      private UserServices userServices;
+      private UserService userService;
       @Test
       public void  one(){
-       int s= userServices.check("jack","123");
+       User s= userService.find("jack", "123");
         System.out.println(s);
 
       }
