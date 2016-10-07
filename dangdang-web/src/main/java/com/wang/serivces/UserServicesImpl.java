@@ -3,7 +3,8 @@ package com.wang.serivces;
 import com.wang.entity.User;
 import com.wang.mapper.UserMapper;
 
-import com.wang.serivces.impl.UserServices;
+
+import com.wang.serivces.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ import java.util.Map;
  * Created by Administrator on 2016/10/6.
  */
 @Service
-public class UserServicesImpl implements UserServices {
+public class UserServicesImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
     //查询单个
