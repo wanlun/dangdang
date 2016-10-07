@@ -28,30 +28,27 @@ public class BookController {
       }
 
     @RequestMapping("/findallBooks1")
-    public  String findallbookspage(@RequestParam(name="page",defaultValue="0")Integer page,ModelMap modelMap){
-        if(page<0){
-            page=0;
+    public  String findallbookspage(@RequestParam(name="page",defaultValue="0")Integer page,ModelMap modelMap) {
+        if (page < 0) {
+            page = 0;
         }
-            Page<Book> pages=bookinterfacce.findpageall(page, 4);
-             List<Book> boo=pages.getContent();
+        Page<Book> pages = bookinterfacce.findpageall(page, 4);
+        List<Book> boo = pages.getContent();
         System.out.println(boo);
-          //获得总的条数
-              int  yeshu=pages.getTotalPages()-1;
-        if (page>yeshu){
-            page=yeshu;
-            pages=bookinterfacce.findpageall(page, 4);
-            boo=pages.getContent();
+        //获得总的条数
+        int yeshu = pages.getTotalPages() - 1;
+        if (page > yeshu) {
+            page = yeshu;
+            pages = bookinterfacce.findpageall(page, 4);
+            boo = pages.getContent();}
+            modelMap.put("page", page);
+            modelMap.put("boo", boo);
+            modelMap.put("yeshu", yeshu);
+
+            return "index";
+
+
         }
-
-                  modelMap.put("page",page);
-                  modelMap.put("boo",boo);
-                  modelMap.put("yeshu",yeshu);
-
-        return "index" ;
-
-
-
 
     }
 
-}

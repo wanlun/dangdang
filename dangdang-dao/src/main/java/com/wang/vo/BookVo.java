@@ -5,6 +5,22 @@ package com.wang.vo;
  * @author wangguangjun
  */
 public class BookVo {
+
+	/**
+	 *
+	 *
+	 * 图书的数量
+	 */
+	private  int count;
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
 	/**
 	 *  图书id
 	 */
