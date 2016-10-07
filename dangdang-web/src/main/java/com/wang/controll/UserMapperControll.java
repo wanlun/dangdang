@@ -27,13 +27,17 @@ public class UserMapperControll {
 
 
         @RequestMapping("/add")
-        public String zengjia (User user,ModelMap modelMap) {
+        @ResponseBody
+        public int zengjia (User user,ModelMap modelMap) {
             int bo = userServices.insert(user);
-            if (bo == 1) {
-                return "zhuceok";
-            } else
-                return "";
+              return bo;
         }
+
+    @RequestMapping("/addok")
+      public String chenggong () {
+        return "zhuceok";
+
+    }
 
     @RequestMapping("/zc")
     public String tozhuce (){

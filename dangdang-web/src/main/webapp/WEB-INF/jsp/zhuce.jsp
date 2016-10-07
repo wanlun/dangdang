@@ -32,7 +32,7 @@
       <li class="unpass">2.注册成功</li>
     </ul>
   </div>
-  <form method="post" id="hah" action="">
+  <form method="post" id="hah" >
     <dl>
       <dt>用 户 名：</dt>
       <dd><input class="input-text" type="text" name="userName" id="a1"/><span>当前用户已存在！</span></dd>
@@ -58,7 +58,7 @@
       $.post("add",$("#hah").serialize(),function(date){
         if(data==1){
           alert("注册成功");
-
+          location="addok";
         }
         else
         alert("注册失败");
