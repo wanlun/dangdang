@@ -55,6 +55,7 @@
             <td class="thumb"><img src="${b.bookPic}" width="140px" height="220px" /></td>
           </tr>
         </c:forEach>
+
       </table>
       <div class="page-spliter">
         <a href="#">&lt;</a>
