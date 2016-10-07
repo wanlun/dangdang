@@ -1,6 +1,6 @@
 import com.wang.Starapplication;
 
-import com.wang.serivces.UserServices;
+import com.wang.serivces.impl.UserServices;
 
 
 import org.junit.Test;

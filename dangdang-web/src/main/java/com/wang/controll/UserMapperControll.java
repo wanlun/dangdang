@@ -1,7 +1,7 @@
 package com.wang.controll;
 
 import com.wang.entity.User;
-import com.wang.serivces.UserServices;
+import com.wang.serivces.impl.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
