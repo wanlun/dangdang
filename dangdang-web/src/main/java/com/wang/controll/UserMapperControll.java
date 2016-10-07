@@ -31,7 +31,11 @@ public class UserMapperControll {
 
     }
 
+    @RequestMapping("/zc")
+    public String tozhuce (){
 
+        return "zhuce";
+    }
 
         @RequestMapping("/add")
         @ResponseBody
@@ -46,10 +50,6 @@ public class UserMapperControll {
 
     }
 
-    @RequestMapping("/zc")
-    public String tozhuce (){
 
-        return "zhuce";
-    }
 
 }
