@@ -22,18 +22,19 @@ public class UserMapperControll {
 
    //判断是否有该用户
     @RequestMapping("/check")
-    @ResponseBody
-    public User check(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord,HttpSession session) {
+
+    public String check(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord,HttpSession session) {
        User user = userService.find(userName, passWord);
-        session.setAttribute("user",user);
-        return user;
+        if (user==null){
+            return "redirect:/login.html";
+        }else{
+            session.setAttribute("user",user);
+            return "redirect:/findallBooks";
+        }
+
     }
 
-    @RequestMapping("/denglu")
-    public String denglu() {
-        return "index";
 
-    }
     //跳到注册页面
     @RequestMapping("/zc")
     public String zc() {
@@ -49,13 +50,7 @@ public class UserMapperControll {
        else
             return "zhuce";
     }
-    //跳到主页
 
-    @RequestMapping("/foto")
-    public String foto() {
-        return "index";
-
-    }
   //session注销
     @RequestMapping("/des")
     public String des(HttpSession session) {

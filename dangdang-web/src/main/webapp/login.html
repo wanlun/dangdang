@@ -16,14 +16,14 @@
 </div>
 <div id="login">
 	<h2>用户登陆</h2>
-	<form method="post" action="">
+	<form method="post" action="check">
 		<dl>
 			<dt>用户名：</dt>
 			<dd><input class="input-text" type="text" name="userName" id="name"/><span>当前用户不存在！</span></dd>
 			<dt>密　码：</dt>
 			<dd><input class="input-text" type="password" name="passWord" id="mima" /><span>密码过于简单！</span></dd>
 			<dt></dt>
-			<dd class="button"><input  type="button" id="dl" name="submit" value="登录" /><input  type="button" name="register" value="注册" onclick="window.location='zc';" /></dd>
+			<dd class="button"><input  type="submit"  name="submit" value="登录" /><input  type="button" name="register" value="注册" onclick="window.location='zc';" /></dd>
 		</dl>
 	</form>
 </div>
@@ -32,25 +32,7 @@
 
 </div>
 
-<script src="js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-	$("#dl").click(function(){
-		$.post("check",{"userName":$("#name").val(),"passWord":$("#mima").val()},function(data){
-			if(data!=null){
-				alert("登录成功");
-				location="denglu";
-			}
-			else{
-				alert("用户不存在，请注册");
-				location.reload();
-			}
-		});
-	});
-	});
 
-
-</script>
 
 </body>
 </html>
