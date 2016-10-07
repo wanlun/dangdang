@@ -22,6 +22,12 @@ public class BookVo {
 	 */
 	private Integer bookStor;
 	/**
+	 *
+	 * 购买数量
+	 *
+	 */
+	private  Integer bookCount;
+	/**
 	 *  图书图片
 	 */
 	private String bookPic;
@@ -100,4 +106,12 @@ public class BookVo {
     public String getBookPic(){
     	return bookPic;
     }
+
+	public Integer getBookCount() {
+		return bookCount;
+	}
+
+	public void setBookCount(Integer bookCount) {
+		this.bookCount = bookCount;
+	}
 }
