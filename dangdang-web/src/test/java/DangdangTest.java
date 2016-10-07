@@ -1,6 +1,9 @@
+import com.fc.platform.commons.page.Page;
 import com.wang.Starapplication;
 
+import com.wang.entity.Book;
 import com.wang.entity.User;
+import com.wang.serivces.impl.Bookinterfacce;
 import com.wang.serivces.impl.UserService;
 
 
@@ -19,10 +22,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class DangdangTest {
      @Autowired
       private UserService userService;
+     @Autowired
+       private Bookinterfacce bookinterfacce;
       @Test
       public void  one(){
        User s= userService.find("jack", "123");
         System.out.println(s);
-
       }
+
+     @Test
+     public  void testfenye(){
+             Page<Book> pages=bookinterfacce.findpageall(2, 3);
+      System.out.println(pages.getTotalPages());
+     }
 }

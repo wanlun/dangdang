@@ -20,21 +20,25 @@ public class BookController {
       @Autowired
      private Bookinterfacce bookinterfacce;
 
-      @RequestMapping("findallBooks1")
+      @RequestMapping("/findallBooks1")
       public  String findallbooks(ModelMap modelMap){
           List<Book> books=bookinterfacce.findall();
               modelMap.put("books",books);
            return "index1" ;
       }
 
-    @RequestMapping("findallBooks")
+    @RequestMapping("/findallBooks1")
     public  String findallbookspage(@RequestParam(name="page",defaultValue="0")Integer page,ModelMap modelMap){
         if(page<0){page=0;}
             Page<Book> pages=bookinterfacce.findpageall(page, 4);
              List<Book> boo=pages.getContent();
+          //获得总的条数
+              int  yeshu=pages.getTotalPages();
         if (page>pages.getTotalPages()-1){page=pages.getTotalPages();}
-                  modelMap.put("pages",pages);
+                  modelMap.put("page",page);
                   modelMap.put("boo",boo);
+                  modelMap.put("yeshu",yeshu);
+
         return "index" ;
 
 
