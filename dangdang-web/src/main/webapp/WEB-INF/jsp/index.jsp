@@ -47,15 +47,14 @@
         </tr>
         <c:forEach items="${books}" var="b">
 
-          <tr>
-            <td><input type="checkbox" name="bookId" value="${b.bookId}" /></td>
-            <td class="title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${b.bookName}</td>
-            <td>${b.bookPrice}</td>
-            <td>999</td>
-            <td class="thumb"><img src="${b.bookPic}" width="140px" height="220px" /></td>
-          </tr>
+        <tr>
+          <td><input type="checkbox" name="bookId" value="${b.bookId}" /></td>
+          <td class="title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${b.bookName}</td>
+          <td>${b.bookPrice}</td>
+          <td>999</td>
+          <td class="thumb"><img src="${b.bookPic}" width="140px" height="220px" /></td>
+        </tr>
         </c:forEach>
-
       </table>
       <div class="page-spliter">
         <a href="#">&lt;</a>
@@ -79,4 +78,3 @@
 </div>
 </body>
 </html>
-

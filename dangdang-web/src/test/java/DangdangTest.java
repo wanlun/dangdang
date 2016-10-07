@@ -1,7 +1,6 @@
 import com.wang.Starapplication;
 
-import com.wang.entity.User;
-import com.wang.serivces.UserServices;
+import com.wang.serivces.impl.UserServices;
 
 
 import org.junit.Test;
@@ -20,7 +19,7 @@ public class DangdangTest {
       private UserServices userServices;
       @Test
       public void  one(){
-       User s= userServices.find("jack","123");
+       int s= userServices.check("jack","123");
         System.out.println(s);
 
       }

@@ -12,21 +12,24 @@
     <artifactId>dangdang-web</artifactId>
 
     <dependencies>
+        <!--这个是springboot的web层的包，是spring的一个模块。在项目层还有一个父类的包-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- 导入dao层依赖包，就可以对dao层的数据进行访问-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>1.2.2.RELEASE</version>
         </dependency>
-
         <dependency>
             <groupId>dangdang</groupId>
             <artifactId>dangdang-dao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
         <dependency>
             <groupId>javax.servlet</groupId>
