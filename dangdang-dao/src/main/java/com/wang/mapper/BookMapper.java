@@ -12,7 +12,7 @@ public interface BookMapper {
 
 	void insertBook(Book book);
 
-	void deleteBookByBookId(Integer bookId);
+	int deleteBookByBookId(Integer bookId);
 
 	void updateBook(Book book);
 

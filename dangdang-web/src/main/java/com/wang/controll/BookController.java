@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.security.PrivateKey;
 import java.util.List;
@@ -48,10 +49,13 @@ public class BookController {
                   modelMap.put("yeshu",yeshu);
 
         return "index" ;
+    }
 
-
-
-
+    @RequestMapping("/shanBooks")
+    @ResponseBody
+    public  int findallbooks(@RequestParam("bookId") int bookId ){
+            int s= bookinterfacce.deleteByBookId(bookId);
+            return s;
     }
 
 }
