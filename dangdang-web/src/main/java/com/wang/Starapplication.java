@@ -14,9 +14,5 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({"com.fc","com.wang.controll","com.wang.serivces"})
 @MapperScan("com.wang.mapper")
 public class Starapplication extends SpringBootServletInitializer {
-    public static void main(String[] args){
-        System.out.println("启动类启动了");
-        SpringApplication.run(Starapplication.class,args);
 
-    }
 }
