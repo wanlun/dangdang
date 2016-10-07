@@ -19,11 +19,11 @@
 	<form method="post" action="">
 		<dl>
 			<dt>用户名：</dt>
-			<dd><input class="input-text" type="text" name="userName" /><span>当前用户不存在！</span></dd>
+			<dd><input class="input-text" type="text" name="userName" id="name"/><span>当前用户不存在！</span></dd>
 			<dt>密　码：</dt>
-			<dd><input class="input-text" type="password" name="passWord" /><span>密码过于简单！</span></dd>
+			<dd><input class="input-text" type="password" name="passWord" id="mima" /><span>密码过于简单！</span></dd>
 			<dt></dt>
-			<dd class="button"><input class="input-btn" type="submit" name="submit" value="" /><input class="input-reg" type="button" name="register" value="" onclick="window.location='register.html';" /></dd>
+			<dd class="button"><input  type="button" id="dl" name="submit" value="登录" /><input  type="button" name="register" value="注册" onclick="window.location='zc';" /></dd>
 		</dl>
 	</form>
 </div>
@@ -31,5 +31,26 @@
 	合众艾特网上书城 &copy; 版权所有
 
 </div>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+	$("#dl").click(function(){
+		$.post("check",{"userName":$("#name").val(),"passWord":$("#mima").val()},function(data){
+			if(data==1){
+				alert("登录成功");
+				location="denglu";
+			}
+			else{
+				alert("用户不存在，请注册");
+				location.reload();
+			}
+		});
+	});
+	});
+
+
+</script>
+
 </body>
 </html>

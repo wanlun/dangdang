@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dangdang-dao</artifactId>
     <dependencies>
+        <!--MySQL的驱动包-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -36,6 +37,7 @@
             <url>http://192.168.0.200:8081/nexus/content/groups/public/</url>
         </repository>
     </repositories>
+
 
 
 </project>

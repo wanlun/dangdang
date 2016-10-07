@@ -1,6 +1,8 @@
+import com.wang.Starapplication;
+
+import com.wang.serivces.UserServices;
 
 
-import com.wang.serivces.UserServicesImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +13,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by Administrator on 2016/10/6.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-/*@SpringApplicationConfiguration(value= Starapplication.class)*/
-    public class DangdangTest {
+@SpringApplicationConfiguration(value=Starapplication.class)
+public class DangdangTest {
      @Autowired
-      private UserServicesImpl  userServicesImpl;
-    @Test
+      private UserServices userServices;
+      @Test
       public void  one(){
-       int s= userServicesImpl.check("张三","123");
+       int s= userServices.check("jack","123");
         System.out.println(s);
 
       }
