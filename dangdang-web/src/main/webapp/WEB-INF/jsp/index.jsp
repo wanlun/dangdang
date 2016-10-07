@@ -67,7 +67,7 @@
         <c:forEach var="d" begin="0" end="${yeshu}">
          <a href="findallBooks1?page=${d}">${d+1}</a>
         </c:forEach>
-        <a href="findallBooks1?page=yeshu-1">尾页</a>
+        <a href="findallBooks1?page=${yeshu}">尾页</a>
         <a href="findallBooks1?page=${page+1}">&raquo;</a>
       </div>
       <div class="button"><input class="input-btn" type="submit" name="submit" value="" /></div>
