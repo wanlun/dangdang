@@ -34,11 +34,7 @@ public class UserMapperControll {
 
     }
 
-    @RequestMapping("/denglu")
-    public String denglu() {
-        return "index";
 
-    }
     //跳到注册页面
     @RequestMapping("/zc")
     public String zc() {
@@ -54,13 +50,7 @@ public class UserMapperControll {
        else
             return "zhuce";
     }
-    //跳到主页
 
-    @RequestMapping("/foto")
-    public String foto() {
-        return "index";
-
-    }
   //session注销
     @RequestMapping("/des")
     public String des(HttpSession session) {
