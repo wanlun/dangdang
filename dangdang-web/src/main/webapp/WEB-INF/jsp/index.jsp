@@ -45,7 +45,7 @@
           <th class="store">库存</th>
           <th class="view">图片预览</th>
         </tr>
-        <c:forEach items="${books}" var="b">
+        <c:forEach items="${boo}" var="b">
 
         <tr>
           <td><input type="checkbox" name="bookId" value="${b.bookId}" /></td>
@@ -58,16 +58,16 @@
       </table>
       <div class="page-spliter">
         <a href="findallBooks1?page=${page-1}">&laquo;</a>
-        <a href="findallBooks1?page=1">首页</a>
+        <a href="findallBooks1?page=0">首页</a>
        <%-- <span class="current">1</span>
         <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
         <span>...</span>--%>
-        <c:forEach var="d" begin="0" end="${-1}">
+        <c:forEach var="d" begin="0" end="${yeshu}">
          <a href="findallBooks1?page=${d}">${d+1}</a>
         </c:forEach>
-        <a href="findallBooks1?page=yeshu">尾页</a>
+        <a href="findallBooks1?page=yeshu-1">尾页</a>
         <a href="findallBooks1?page=${page+1}">&raquo;</a>
       </div>
       <div class="button"><input class="input-btn" type="submit" name="submit" value="" /></div>
