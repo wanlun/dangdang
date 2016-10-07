@@ -37,7 +37,7 @@
 	$(function(){
 	$("#dl").click(function(){
 		$.post("check",{"userName":$("#name").val(),"passWord":$("#mima").val()},function(data){
-			if(data==1){
+			if(data!=null){
 				alert("登录成功");
 				location="denglu";
 			}

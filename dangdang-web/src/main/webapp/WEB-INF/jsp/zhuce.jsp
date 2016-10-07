@@ -32,18 +32,18 @@
       <li class="unpass">2.注册成功</li>
     </ul>
   </div>
-  <form method="post" id="hah" >
+  <form method="post" action="add" >
     <dl>
       <dt>用 户 名：</dt>
-      <dd><input class="input-text" type="text" name="userName" id="a1"/><span>当前用户已存在！</span></dd>
+      <dd><input class="input-text" type="text" name="userName" /><span>当前用户已存在！</span></dd>
       <dt>密　　码：</dt>
-      <dd><input class="input-text" type="password" name="passWord" id="a2"/><span>密码过于简单！</span></dd>
+      <dd><input class="input-text" type="password" name="passWord" /><span>密码过于简单！</span></dd>
       <dt>确认密码：</dt>
-      <dd><input class="input-text" type="password" name="passWord" id="a3" /><span>两次密码输入不一致！</span></dd>
+      <dd><input class="input-text" type="password" name="passWord"  /><span>两次密码输入不一致！</span></dd>
       <dt>Email地址：</dt>
-      <dd><input class="input-text" type="text" name="email" id="a4"/><span>邮箱输入不正确！</span></dd>
+      <dd><input class="input-text" type="text" name="email" /><span>邮箱输入不正确！</span></dd>
       <dt></dt>
-      <dd class="button"><input id="a5" type="button" name="register" value="注册" /></dd>
+      <dd class="button"><input  type="submit" name="register" value="注册" /></dd>
     </dl>
   </form>
 </div>
@@ -51,25 +51,8 @@
   合众艾特网上书城 &copy; 版权所有
 
 </div>
-<script src="../js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript">
-  $(function(){
-    $("#a5").click(function(){
-      $.post("add",$("#hah").serialize(),function(date){
-        if(data==1){
-            alert("注册成功");
-            location="addok";
-        }
-        else{
-           alert("注册失败");
-           location.reload();
-        }
 
-      });
-    });
-  });
 
-</script>
 
 </body>
 </html>
