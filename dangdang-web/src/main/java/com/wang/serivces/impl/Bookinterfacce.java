@@ -15,6 +15,8 @@ public interface Bookinterfacce {
        /*查询全部，有分页*/
        Page<Book> findpageall(int page,int count);
 
+        Book findbyId(String bookId);
+
 
 
 

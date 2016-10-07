@@ -29,7 +29,7 @@ public class UserMapperControll {
             return "redirect:/login.html";
         }else{
             session.setAttribute("user",user);
-            return "redirect:/findallBooks";
+            return "redirect:/findallBooks1";
         }
 
     }

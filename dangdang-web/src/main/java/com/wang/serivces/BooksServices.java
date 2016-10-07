@@ -11,7 +11,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/10/6.
@@ -26,7 +28,7 @@ public class BooksServices implements Bookinterfacce {
     @Override
     public List<Book> findall() {
           List<Book> books=bookMapper.searchBookByParams(null);
-        return books;
+            return books;
     }
 
     @Override
@@ -36,4 +38,16 @@ public class BooksServices implements Bookinterfacce {
         Page<Book> pages=bookMapper.searchBookByParams(null,pa);
         return pages;
     }
+
+    public Book findbyId(String bookId) {
+        Map s=new HashMap();
+         s.put("bookId",bookId);
+         List<Book> list=bookMapper.searchBookByParams(s);
+          if(list.size()==1){
+              return list.get(0);
+          }
+         else
+              return null;
+    }
+
 }
