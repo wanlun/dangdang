@@ -19,16 +19,16 @@ public class UserServicesImpl implements UserServices {
     @Autowired
     private UserMapper userMapper;
     //查询单个
-    public int check(String userName, String passWord) {
+    public User find(String userName, String passWord) {
         Map<String,String> map=new HashMap<String,String>();
         map.put("userName",userName);
         map.put("passWord",passWord);
      List<User> list= userMapper.searchUserByParams(map);
-        if(list.size()!=0){
-          return list.size();
+        if(list.size()==1){
+          return list.get(0);
         }
         else
-            return -1;
+            return null;
     }
 
     @Override
