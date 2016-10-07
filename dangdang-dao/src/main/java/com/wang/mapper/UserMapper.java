@@ -10,7 +10,7 @@ import com.fc.platform.commons.page.Pageable;
 
 public interface UserMapper {
 
-	void insertUser(User user);
+	int insertUser(User user);
 
 	void deleteUserByUserId(Integer userId);
 

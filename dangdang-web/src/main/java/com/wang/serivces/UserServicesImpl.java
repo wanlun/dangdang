@@ -29,4 +29,10 @@ public class UserServicesImpl implements UserServices {
         else
             return -1;
     }
+
+    @Override
+    public int insert(User user) {
+       int s=userMapper.insertUser(user);
+         return s;
+    }
 }
