@@ -77,7 +77,6 @@
         if(data==1){
           alert("删除成功");
           location.reload();
-
         }
         else
           alert("删除失败");
