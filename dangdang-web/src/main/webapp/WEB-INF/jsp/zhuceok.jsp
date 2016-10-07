@@ -35,7 +35,7 @@
   <div class="success">
     <div class="information">
       <p>恭喜：注册成功！</p>
-      <p><a href="/foto">点此进入用户中心&gt;&gt;</a></p>
+      <p><a href="/login.html">点此进入用户中心&gt;&gt;</a></p>
     </div>
   </div>
 </div>
