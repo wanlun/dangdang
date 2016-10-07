@@ -18,7 +18,7 @@ public class BookController {
       @Autowired
      private Bookinterfacce bookinterfacce;
 
-      @RequestMapping("findallBooks")
+      @RequestMapping("/findallBooks")
       public  String findallbooks(ModelMap modelMap){
           List<Book> books=bookinterfacce.findall();
               modelMap.put("books",books);

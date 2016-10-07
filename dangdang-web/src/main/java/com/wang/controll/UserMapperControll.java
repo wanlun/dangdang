@@ -22,11 +22,16 @@ public class UserMapperControll {
 
    //判断是否有该用户
     @RequestMapping("/check")
-    @ResponseBody
-    public User check(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord,HttpSession session) {
+
+    public String check(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord,HttpSession session) {
        User user = userService.find(userName, passWord);
-        session.setAttribute("user",user);
-        return user;
+        if (user==null){
+            return "redirect:/login.html";
+        }else{
+            session.setAttribute("user",user);
+            return "redirect:/findallBooks";
+        }
+
     }
 
     @RequestMapping("/denglu")
