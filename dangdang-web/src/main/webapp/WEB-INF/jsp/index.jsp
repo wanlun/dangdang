@@ -57,15 +57,18 @@
         </c:forEach>
       </table>
       <div class="page-spliter">
-        <a href="#">&lt;</a>
-        <a href="#">首页</a>
-        <span class="current">1</span>
+        <a href="findallBooks1?page=${page-1}">&laquo;</a>
+        <a href="findallBooks1?page=1">首页</a>
+       <%-- <span class="current">1</span>
         <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
-        <span>...</span>
-        <a href="#">尾页</a>
-        <a href="#">&gt;</a>
+        <span>...</span>--%>
+        <c:forEach var="d" begin="0" end="${-1}">
+         <a href="findallBooks1?page=${d}">${d+1}</a>
+        </c:forEach>
+        <a href="findallBooks1?page=yeshu">尾页</a>
+        <a href="findallBooks1?page=${page+1}">&raquo;</a>
       </div>
       <div class="button"><input class="input-btn" type="submit" name="submit" value="" /></div>
     </form>
