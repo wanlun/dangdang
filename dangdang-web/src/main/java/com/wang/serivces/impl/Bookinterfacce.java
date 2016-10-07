@@ -1,5 +1,6 @@
 package com.wang.serivces.impl;
 
+import com.fc.platform.commons.page.Page;
 import com.wang.entity.Book;
 
 import java.util.List;
@@ -9,5 +10,12 @@ import java.util.List;
  */
 public interface Bookinterfacce {
 
-    List<Book> findall();
+        /*查询全部没有分页*/
+       List<Book> findall();
+       /*查询全部，有分页*/
+       Page<Book> findpageall(int page,int count);
+
+
+
+
 }
