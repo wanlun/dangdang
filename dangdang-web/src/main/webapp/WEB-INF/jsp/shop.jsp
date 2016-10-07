@@ -41,22 +41,23 @@
           <th>书名</th>
           <th class="nums">数量</th>
           <th class="price">价格</th>
-          <th class="price">小计</th>
-          <th class="price">操作</th>
+          <th >小计</th>
+          <th>操作</th>
         </tr>
         <c:forEach items="${car}" var="k">
         <tr>
-          <td class="thumb"><img src="${k.value.bookPic}" /></td>
-          <td class="title">${k.value.bookName}</td>
-          <td><input class="input-text" type="text" name="nums" value="${k.value.bookCount}" /></td>
+          <input type="hidden" name="bookVoId"  class="id" value="${k.value.bookPic}">
+          <td class="thumb"><img src="${k.value.bookPic}" height="150" /></td>
+          <td class="title" style="align-content: center">${k.value.bookName}</td>
+          <td><input class="input-text"  type="text" name="nums" value="${k.value.bookCount}" /></td>
           <td>￥<span>${k.value.bookPrice}</span></td>
-          <td>￥<span>${k.value.bookPic*k.value.bookCount}</span></td>
-          <td>￥<span>删除</span></td>
+          <td>￥<span class="xiaoji">${k.value.bookPrice*k.value.bookCount}</span></td>
+          <td><input type="button" value="删除" class="shan"></td>
         </tr>
         </c:forEach>
       </table>
       <div class="button">
-        <h4>总价：￥<span>65.00</span>元</h4>
+        <h4>总价：￥<span class="zongjia">65.00</span>元</h4>
         <input class="input-chart" type="submit" name="submit" value="" />
       </div>
     </form>
@@ -67,6 +68,23 @@
 
 </div>
 
-<script type=""
+<script type="text/javascript">
+  var s=$(".id").val;
+  $(function(){
+    $(".shan").click(function(){
+      confirm("是否确认删除");
+      $("shanBooks",{"bookId":s},function(data){
+        if(data==1){
+          alert("删除成功");
+          location.reload();
+        }
+        else
+          alert("删除失败");
+        location.reload();
+      });
+    });
+  });
+
+</script>
 </body>
 </html>

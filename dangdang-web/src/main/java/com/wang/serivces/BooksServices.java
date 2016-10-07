@@ -50,4 +50,14 @@ public class BooksServices implements Bookinterfacce {
               return null;
     }
 
+    @Override
+       public int deleteByBookId(Integer bookId) {
+        int m= bookMapper.deleteBookByBookId(bookId);
+          if(m!=0){
+              return m;
+          }
+          else
+              return -1;
+    }
+
 }

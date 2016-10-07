@@ -17,6 +17,8 @@ public interface Bookinterfacce {
 
         Book findbyId(String bookId);
 
+       int deleteByBookId(Integer bookId);
+
 
 
 
