@@ -36,10 +36,13 @@ public class BookController {
              List<Book> boo=pages.getContent();
         System.out.println(boo);
           //获得总的条数
-              int  yeshu=pages.getTotalPages();
-        if (page>pages.getTotalPages()-1){
-            page=pages.getTotalPages();
+              int  yeshu=pages.getTotalPages()-1;
+        if (page>yeshu){
+            page=yeshu;
+            pages=bookinterfacce.findpageall(page, 4);
+            boo=pages.getContent();
         }
+
                   modelMap.put("page",page);
                   modelMap.put("boo",boo);
                   modelMap.put("yeshu",yeshu);
