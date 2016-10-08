@@ -42,24 +42,17 @@
         <th class="createTime">下单时间</th>
         <th class="status">订单状态</th>
       </tr>
-        <c:forEach items="${car}" var="c">
+     <%--   <c:forEach items="${car}" var="c">
       <tr>
-        <td>10010</td>
+        <td>${c.value.bookId}</td>
         <td class="thumb"><img src="images/book/book_01.gif" /></td>
-        <td>王五</td>
-        <td>￥18.00</td>
-        <td>2012-12-21 12:00:00</td>
+        <td>${user.userName}</td>
+        <td>￥${c.value.bookPrice}</td>
+        <td></td>
         <td>已完成</td>
       </tr>
         </c:forEach>
-      <tr>
-        <td>10010</td>
-        <td class="thumb"><img src="images/book/book_02.gif" /></td>
-        <td>马六</td>
-        <td>￥18.00</td>
-        <td>2012-12-21 12:00:00</td>
-        <td>已完成</td>
-      </tr>
+--%>
     </table>
     <div class="page-spliter">
       <a href="#">&lt;</a>

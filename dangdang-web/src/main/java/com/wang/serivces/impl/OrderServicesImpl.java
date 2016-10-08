@@ -44,6 +44,8 @@ public class OrderServicesImpl implements orderServices {
          for(BookVo b:ordermianlist){
              sum+=b.getBookCount()*b.getBookPrice();
              Ordermain  om=new Ordermain();
+             String  ordermian=UUID.randomUUID().toString();
+             om.setOrdermainId(ordermian);
              om.setOrderId(orderID);
              om.setBookId(b.getBookId());
              om.setPrice(b.getBookPrice());

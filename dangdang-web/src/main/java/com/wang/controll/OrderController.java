@@ -25,9 +25,9 @@ import java.util.Map;
 public class OrderController {
     @Autowired
     private OrderServicesImpl orderServices;
+
     @RequestMapping("/addorder")
-    @ResponseBody
-    public String addOrder(HttpSession session, Ordermain ordermain) {
+    public String addOrder(HttpSession session, OrdermainVo ordermainVo) {
         try {
         /*从Session对象中获取用户对象*/
             User user = (User) session.getAttribute("user");
@@ -43,11 +43,12 @@ public class OrderController {
             om.setUserId(user.getUserId());
             om.setBookVoList(bookVoList);
             boolean boo = orderServices.addorder(om);
-            if (boo = true) {
-                return "orderlist";
-            }
+              if(boo=true){
+                  return "orderlist";
+              }
         } catch (Exception ex) {
-            return "index";
+            ex.printStackTrace();
+            return "redirect:/findallBooks1";
         }
         return "orderlist";
 }}

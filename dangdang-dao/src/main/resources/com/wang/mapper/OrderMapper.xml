@@ -34,7 +34,7 @@
     </sql>
 
     <insert id="insertOrder" parameterType="com.wang.entity.Order">
-        INSERT INTO order(
+        INSERT INTO `order`(
         <include refid="orderBaseColumnSql"/>
         )VALUES(
             #{orderId},
