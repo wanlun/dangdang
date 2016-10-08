@@ -52,7 +52,7 @@
           <td class="title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${b.bookName}</td>
           <td>${b.bookPrice}</td>
           <td>999</td>
-          <td class="thumb"><img src="${b.bookPic}" width="140px" height="220px" /></td>
+          <td class="thumb"><img src="${b.bookPic}" width="100px" height="120px" /></td>
         </tr>
         </c:forEach>
       </table>

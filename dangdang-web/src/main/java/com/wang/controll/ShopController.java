@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +32,7 @@ public class ShopController {
             if(car==null)
                 car=new HashMap();
         }
+
         for(int i=0;bookId!=null&&i<bookId.length;i++){
             String bookId1=bookId[i];
             //通过BookID获取Book对象
@@ -51,6 +54,7 @@ public class ShopController {
                 bookVo.setBookCount(1);
             //预备把vo对象放入到购物车中
             car.put(bookVo.getBookId(),bookVo);
+
         }
         session.setAttribute("car", car);
         return "redirect:/toshoping";
@@ -58,17 +62,33 @@ public class ShopController {
     }
 
     @RequestMapping("/toshoping")
-    public String shop(){
-        return "shop";
+    public String shop(){return "shop";
     }
 
 
     @RequestMapping("/removecar")
-    public String removecar(@RequestParam("bookId") String bookId,HttpSession session){
+    public String removecar(@RequestParam("bookId") Integer bookId,HttpSession session){
+
         Map car=(Map)session.getAttribute("car");
         car.remove(bookId);
-        return "shop";
+        session.setAttribute("car", car);
+        return "redirect:/toshoping";
+    }
 
+    @RequestMapping("/xiugai")
+    @ResponseBody
+    public Object update(@RequestParam("bookId") Integer bookId,@RequestParam("bookCount") Integer bookCount ,HttpSession session){
 
-}
+        Map car=(Map)session.getAttribute("car");
+         BookVo bookVo=(BookVo)car.get(bookId);
+         bookVo.setBookCount(bookCount);
+        int sum=0;
+          Collection<BookVo> s=car.values();
+          for(BookVo b:s){
+              sum+=b.getBookCount()*b.getBookPrice();
+          }
+          session.setAttribute("car", car);
+              return  sum;
+    }
+
 }
