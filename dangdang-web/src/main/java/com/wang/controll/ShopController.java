@@ -28,7 +28,8 @@ public class ShopController {
     public String putcar(@RequestParam("bookId") String[]bookId,HttpSession session ){
         //创建了一个购物车对象,先假设session中有购物车，如果没有才创建购物车
         Map car=(Map) session.getAttribute("car");//假设session中有购物车
-        if(car==null){    //假设session中有购物车
+        if(car==null){
+        //假设session中有购物车
             if(car==null)
                 car=new HashMap();
         }

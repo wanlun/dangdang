@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
  * Created by Administrator on 2016/10/6.
  */
 @Controller
-public class UserMapperControll {
+public class UserMapperControll extends  BaseController {
     @Autowired
     private UserService userService;
 

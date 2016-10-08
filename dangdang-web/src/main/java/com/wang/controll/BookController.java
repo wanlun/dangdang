@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Administrator on 2016/10/7.
  */
 @Controller
-public class BookController {
+public class BookController  extends BaseController{
       @Autowired
      private Bookinterfacce bookinterfacce;
 
