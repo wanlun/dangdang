@@ -46,13 +46,13 @@
         </tr>
         <c:forEach items="${car}" var="k">
         <tr>
-          <input type="hidden" name="bookVoId"  class="id" value="${k.value.bookPic}">
-          <td class="thumb"><img src="${k.value.bookPic}" height="150" /></td>
-          <td class="title" style="align-content: center">${k.value.bookName}</td>
-          <td><input class="input-text"  type="text" name="nums" value="${k.value.bookCount}" /></td>
+          <input type="hidden" name="bookVoId"  class="id" value="${k.value.bookId}">
+          <td class="thumb"><img src="${k.value.bookPic}" height="150"  name="bookPic"/></td>
+          <td class="title" style="align-content: center" name="bookName">${k.value.bookName}</td>
+          <td><input class="input-text"  type="text" name="bookCount" value="${k.value.bookCount}" /></td>
           <td>￥<span>${k.value.bookPrice}</span></td>
           <td>￥<span class="xiaoji">${k.value.bookPrice*k.value.bookCount}</span></td>
-          <td><input type="button" value="删除" class="shan"></td>
+          <td><a href="removecar?bookId=${k.value.bookId}">删除</a></td>
         </tr>
         </c:forEach>
       </table>
@@ -68,23 +68,24 @@
 
 </div>
 
-<script type="text/javascript">
-  var s=$(".id").val;
+<%--<script type="text/javascript">
+
   $(function(){
     $(".shan").click(function(){
+      var ms=$(this).attr("title");
       confirm("是否确认删除");
-      $("shanBooks",{"bookId":s},function(data){
+      $("shanBooks",{bookId:ms},function(data){
         if(data==1){
           alert("删除成功");
           location.reload();
         }
         else
           alert("删除失败");
-        location.reload();
+
       });
     });
   });
 
-</script>
+</script>--%>
 </body>
 </html>

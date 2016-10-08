@@ -39,8 +39,8 @@ public class ShopController {
             bookVo.setBookId(book.getBookId());
             bookVo.setBookName(book.getBookName());
             bookVo.setBookPic(book.getBookPic());
-            book.setBookStor(book.getBookStor());
-            book.setBookPrice(book.getBookPrice());
+            bookVo.setBookStor(book.getBookStor());
+            bookVo.setBookPrice(book.getBookPrice());
 
             BookVo s=(BookVo)car.get(book.getBookId());
             //如果购物中存在相同的图书。则购买数量为当前购物车中的图书数量加一。否则购买数量为1
@@ -63,6 +63,12 @@ public class ShopController {
     }
 
 
+    @RequestMapping("/removecar")
+    public String removecar(@RequestParam("bookId") String bookId,HttpSession session){
+        Map car=(Map)session.getAttribute("car");
+        car.remove(bookId);
+        return "shop";
 
 
+}
 }
