@@ -62,15 +62,18 @@ public class ShopController {
     }
 
     @RequestMapping("/toshoping")
-    public String shop(){return "shop";
+    public String shop(){
+        return "shop";
     }
 
 
     @RequestMapping("/removecar")
     public String removecar(@RequestParam("bookId") Integer bookId,HttpSession session){
-
+       //获取map
         Map car=(Map)session.getAttribute("car");
+        //通过id键，在map中删除值
         car.remove(bookId);
+        //将删除过后的购物车放入session中
         session.setAttribute("car", car);
         return "redirect:/toshoping";
     }
@@ -78,17 +81,38 @@ public class ShopController {
     @RequestMapping("/xiugai")
     @ResponseBody
     public Object update(@RequestParam("bookId") Integer bookId,@RequestParam("bookCount") Integer bookCount ,HttpSession session){
-
+        //获取这个map
         Map car=(Map)session.getAttribute("car");
+        //通过id在map里找出对应的bookvo
          BookVo bookVo=(BookVo)car.get(bookId);
+        //更改书的数量
          bookVo.setBookCount(bookCount);
         int sum=0;
+        //获取购物车中的所有书
           Collection<BookVo> s=car.values();
           for(BookVo b:s){
+              //循环计算总计
               sum+=b.getBookCount()*b.getBookPrice();
           }
+        //将修改好的购物车放入session
           session.setAttribute("car", car);
               return  sum;
     }
+
+   /* @RequestMapping("/deletebook")
+    @ResponseBody
+    public Object deleteBook(@RequestParam("bookId") Integer bookId,HttpSession session){
+
+        Map cart=(Map)session.getAttribute("car");
+        cart.remove(bid);
+        session.setAttribute("car",car);
+        int sum=0;
+        Collection<BookVo> value= cart.values();
+        for(BookVo vo : value){
+            sum+=vo.getCount()*vo.getBookprice();
+        }
+        return sum;
+    }*/
+
 
 }
