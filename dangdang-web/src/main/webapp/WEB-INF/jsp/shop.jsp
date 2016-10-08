@@ -85,6 +85,14 @@
 
       })
     })
+
+   /* $(".del").click(function(){
+      $(this).parents("tr").slideUp(1000)
+      $.post("deletebook",{"bookId":$(this).attr("bookId")},function(data){
+        $(".zongjia").html(data)
+
+      })
+    })*/
   })
 
 
