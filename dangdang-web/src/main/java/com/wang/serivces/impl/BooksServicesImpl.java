@@ -16,7 +16,7 @@ import java.util.Map;
  * Created by Administrator on 2016/10/6.
  */
 @Service
-public class BooksServices implements Bookinterfacce {
+public class BooksServicesImpl implements Bookinterfacce {
     @Resource
     private BookMapper bookMapper;
 

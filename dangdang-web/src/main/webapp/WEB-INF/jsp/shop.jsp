@@ -34,7 +34,7 @@
 </div>
 <div id="content" class="wrap">
   <div class="list bookList">
-    <form method="post" name="shoping" action="../addorder">
+    <form method="post" name="shoping" action="addorder1">
       <table>
         <tr class="title">
           <th class="view">图片预览</th>
@@ -52,7 +52,7 @@
           <td class="thumb"><img src="${k.value.bookPic}" height="150"  name="bookPic"/></td>
           <td class="title" style="align-content: center" name="bookName">${k.value.bookName}</td>
           <td><input class="input-text"  type="text" name="bookCount" bookId="${k.value.bookId}" danjia="${k.value.bookPrice}" value="${k.value.bookCount}" /></td>
-          <td>￥<span >${k.value.bookPrice}</span></td>
+          <td class="s3">￥<span >${k.value.bookPrice}</span></td>
           <td>￥<span class="xiaoji" att>${k.value.bookPrice*k.value.bookCount}</span></td>
           <td><a href="removecar?bookId=${k.value.bookId}">删除</a></td>
           <c:set var="sum" value="${sum+k.value.bookPrice*k.value.bookCount}"></c:set>
@@ -73,7 +73,7 @@
 <script src="/js/jquery-1.7.2.min.js"> </script>
 
 <script type="text/javascript">
-  $(function(){
+$(function(){
     $(".input-text").blur(function(){
      var price=$(this).attr("danjia");
      var count=$(this).val();
@@ -83,19 +83,24 @@
       $.post("xiugai",{"bookId":$(this).attr("bookId"),"bookCount":$(this).val()},function(data){
             $(".zongjia").html(data);
 
+
       })
     })
 
-   /* $(".del").click(function(){
+   /*$(".del").click(function(){
       $(this).parents("tr").slideUp(1000)
       $.post("deletebook",{"bookId":$(this).attr("bookId")},function(data){
         $(".zongjia").html(data)
 
       })
     })*/
-  })
-
-
+})
+  /*$(function(){
+     $(".input-text").blur(function(){
+       alert($(".s3").children("span").html());
+     });
+  });
+*/
 </script>
 </body>
 </html>

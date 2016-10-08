@@ -1,7 +1,7 @@
 package com.wang.controll;
 
 import com.wang.entity.Book;
-import com.wang.serivces.impl.BooksServices;
+import com.wang.serivces.impl.BooksServicesImpl;
 import com.wang.vo.BookVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ import java.util.Map;
 public class ShopController {
 
     @Autowired
-    private BooksServices booksServices;
+    private BooksServicesImpl booksServicesImpl;
 
     @RequestMapping("/putcar")
     public String putcar(@RequestParam("bookId") String[]bookId,HttpSession session ){
@@ -36,7 +36,7 @@ public class ShopController {
         for(int i=0;bookId!=null&&i<bookId.length;i++){
             String bookId1=bookId[i];
             //通过BookID获取Book对象
-             Book book= booksServices.findbyId(bookId1);
+             Book book= booksServicesImpl.findbyId(bookId1);
             BookVo bookVo=new BookVo();
 
             bookVo.setBookId(book.getBookId());
