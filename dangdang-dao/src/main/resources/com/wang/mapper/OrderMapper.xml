@@ -47,11 +47,11 @@
 
     
     <delete id="deleteOrderByOrderId" parameterType="Integer">
-        DELETE FROM order WHERE orderId = #{orderId}
+        DELETE FROM `order` WHERE orderId = #{orderId}
     </delete>
 
     <update id="updateOrder" parameterType="com.wang.entity.Order">
-        UPDATE order
+        UPDATE `order`
         <set>
             <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userId)">
                 userId = #{userId} ,
@@ -72,7 +72,7 @@
     <select id="searchOrderByParams" parameterType="map" resultMap="orderMap">
         SELECT
         <include refid="orderBaseColumnSql"/>
-        FROM order
+        FROM `order`
         <include refid="orderBaseWhereSql"/>
     </select>
 

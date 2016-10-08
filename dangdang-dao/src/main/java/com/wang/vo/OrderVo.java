@@ -40,6 +40,17 @@ public class OrderVo {
 	 *  订单状态，1代表已付款，0未付款
 	 */
 	private Integer orderStatu;
+
+	private List<String> bookPicture;
+
+	public List<String> getBookPicture() {
+		return bookPicture;
+	}
+
+	public void setBookPicture(List<String> bookPicture) {
+		this.bookPicture = bookPicture;
+	}
+
 	/**
 	 * 订单id
 	 * @param orderId

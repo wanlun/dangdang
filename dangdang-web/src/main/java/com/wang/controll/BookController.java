@@ -3,6 +3,7 @@ package com.wang.controll;
 import com.fc.platform.commons.page.Page;
 import com.wang.entity.Book;
 import com.wang.serivces.Bookinterfacce;
+import com.wang.serivces.impl.BooksServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,11 +19,11 @@ import java.util.List;
 @Controller
 public class BookController {
       @Autowired
-     private Bookinterfacce bookinterfacce;
+      private BooksServices booksServices;
 
       @RequestMapping("/findallBooks")
       public  String findallbooks(ModelMap modelMap){
-          List<Book> books=bookinterfacce.findall();
+          List<Book> books=booksServices.findall();
               modelMap.put("books",books);
            return "index" ;
       }
@@ -32,14 +33,14 @@ public class BookController {
         if(page<0){
             page=0;
         }
-            Page<Book> pages=bookinterfacce.findpageall(page, 4);
+            Page<Book> pages=booksServices.findpageall(page, 4);
              List<Book> boo=pages.getContent();
         System.out.println(boo);
           //获得总的条数
               int  yeshu=pages.getTotalPages()-1;
         if (page>yeshu){
             page=yeshu;
-            pages=bookinterfacce.findpageall(page, 4);
+            pages=booksServices.findpageall(page, 4);
             boo=pages.getContent();
         }
 
@@ -53,7 +54,7 @@ public class BookController {
     @RequestMapping("/shanBooks")
     @ResponseBody
     public  int findallbooks(@RequestParam("bookId") int bookId ){
-            int s= bookinterfacce.deleteByBookId(bookId);
+            int s= booksServices.deleteByBookId(bookId);
             return s;
     }
 

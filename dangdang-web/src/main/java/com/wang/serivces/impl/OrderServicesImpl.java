@@ -10,9 +10,7 @@ import com.wang.vo.OrderVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by Administrator on 2016/10/8.
@@ -44,8 +42,8 @@ public class OrderServicesImpl implements orderServices {
          for(BookVo b:ordermianlist){
              sum+=b.getBookCount()*b.getBookPrice();
              Ordermain  om=new Ordermain();
-             String  ordermian=UUID.randomUUID().toString();
-             om.setOrdermainId(ordermian);
+        /* *//*    String  ordermian=UUID.randomUUID().toString();*//*
+             om.setOrdermainId(ordermian);*/
              om.setOrderId(orderID);
              om.setBookId(b.getBookId());
              om.setPrice(b.getBookPrice());
@@ -53,5 +51,17 @@ public class OrderServicesImpl implements orderServices {
              ordermainMapper.insertOrdermain(om);
          }
         return true;
+    }
+
+    @Override
+    public List<Order> findOrderByOrder(Order order) {
+        if(order != null) {
+            Map<String,String> map = new HashMap<String,String>();
+            if(order.getUserId()!=null) {
+                map.put("userId",order.getUserId()+"");
+            }
+            return orderMapper.searchOrderByParams(map);
+        }
+        return null;
     }
 }
