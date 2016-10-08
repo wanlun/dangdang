@@ -13,7 +13,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title></title>
   <link type="text/css" rel="stylesheet" href="css/style.css" />
- <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.7.2.min.js"></script>
+
 </head>
 <body>
 <div id="header" class="wrap">
@@ -44,20 +44,23 @@
           <th >小计</th>
           <th>操作</th>
         </tr>
+        <c:set var="sum" value="0"></c:set>
+
         <c:forEach items="${car}" var="k">
         <tr>
-          <input type="hidden" name="bookVoId"  class="id" value="${k.value.bookId}">
+          <input type="hidden" name="bookId"  class="id" value="${k.value.bookId}">
           <td class="thumb"><img src="${k.value.bookPic}" height="150"  name="bookPic"/></td>
           <td class="title" style="align-content: center" name="bookName">${k.value.bookName}</td>
-          <td><input class="input-text"  type="text" name="bookCount" value="${k.value.bookCount}" /></td>
-          <td>￥<span>${k.value.bookPrice}</span></td>
-          <td>￥<span class="xiaoji">${k.value.bookPrice*k.value.bookCount}</span></td>
+          <td><input class="input-text"  type="text" name="bookCount" bookId="${k.value.bookId}" danjia="${k.value.bookPrice}" value="${k.value.bookCount}" /></td>
+          <td>￥<span >${k.value.bookPrice}</span></td>
+          <td>￥<span class="xiaoji" att>${k.value.bookPrice*k.value.bookCount}</span></td>
           <td><a href="removecar?bookId=${k.value.bookId}">删除</a></td>
+          <c:set var="sum" value="${sum+k.value.bookPrice*k.value.bookCount}"></c:set>
         </tr>
         </c:forEach>
       </table>
       <div class="button">
-        <h4>总价：￥<span class="zongjia">65.00</span>元</h4>
+        <h4>总价：￥<span class="zongjia">${sum}</span>元</h4>
         <input class="input-chart" type="submit" name="submit" value="" />
       </div>
     </form>
@@ -67,25 +70,24 @@
   合众艾特网上书城 &copy; 版权所有
 
 </div>
+<script src="/js/jquery-1.7.2.min.js"> </script>
 
-<%--<script type="text/javascript">
-
+<script type="text/javascript">
   $(function(){
-    $(".shan").click(function(){
-      var ms=$(this).attr("title");
-      confirm("是否确认删除");
-      $("shanBooks",{bookId:ms},function(data){
-        if(data==1){
-          alert("删除成功");
-          location.reload();
-        }
-        else
-          alert("删除失败");
+    $(".input-text").blur(function(){
+     var price=$(this).attr("danjia");
+     var count=$(this).val();
+      //修改页面小计
+      $(this).parent().next().next().children("span").html(price* count);
+      //修改数据库数量
+      $.post("xiugai",{"bookId":$(this).attr("bookId"),"bookCount":$(this).val()},function(data){
+            $(".zongjia").html(data);
 
-      });
-    });
-  });
+      })
+    })
+  })
 
-</script>--%>
+
+</script>
 </body>
 </html>
