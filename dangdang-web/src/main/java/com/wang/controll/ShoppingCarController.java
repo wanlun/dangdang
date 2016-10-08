@@ -1,10 +1,8 @@
 package com.wang.controll;
 
 import com.wang.entity.Book;
-import com.wang.serivces.BooksServices;
-import com.wang.serivces.impl.Bookinterfacce;
+import com.wang.serivces.impl.BooksServices;
 import com.wang.vo.BookVo;
-import jdk.nashorn.internal.ir.RuntimeNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +20,7 @@ public class ShoppingCarController {
       @Autowired
      private BooksServices booksServices;
 
-      @RequestMapping("/putshoppingcar")
+      /*@RequestMapping("/putshoppingcar")
       public  String putshoppingcar(@RequestParam("bookId")String[] bookId,HttpSession session){
        //创建一个购物成为对象，先假设有一个购物车对象，如果没有就创建一个购物车对象
          Map shoppingcar=(Map)session.getAttribute("shopingcar");
@@ -56,6 +54,6 @@ public class ShoppingCarController {
        @RequestMapping("toshoping")
        public  String shopping(){
            return "shoppingcar";
-       }
+       }*/
 }
 

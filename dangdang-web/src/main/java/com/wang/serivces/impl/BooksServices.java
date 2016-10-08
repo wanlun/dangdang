@@ -1,14 +1,11 @@
-package com.wang.serivces;
+package com.wang.serivces.impl;
 
 import com.fc.platform.commons.page.Page;
 import com.fc.platform.commons.page.PageRequest;
 import com.wang.entity.Book;
 import com.wang.mapper.BookMapper;
-import com.wang.serivces.impl.Bookinterfacce;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.wang.serivces.Bookinterfacce;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import java.util.HashMap;

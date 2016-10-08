@@ -1,10 +1,10 @@
-package com.wang.serivces;
+package com.wang.serivces.impl;
 
 import com.wang.entity.User;
 import com.wang.mapper.UserMapper;
 
 
-import com.wang.serivces.impl.UserService;
+import com.wang.serivces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

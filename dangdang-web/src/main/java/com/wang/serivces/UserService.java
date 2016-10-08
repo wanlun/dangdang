@@ -1,4 +1,4 @@
-package com.wang.serivces.impl;
+package com.wang.serivces;
 
 import com.wang.entity.User;
 

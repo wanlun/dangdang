@@ -1,10 +1,24 @@
 package com.wang.vo;
 
+import java.util.List;
+
 /**
  * 
  * @author wangguangjun
  */
 public class OrdermainVo {
+
+
+	private  Integer userId;
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
 	/**
 	 *  订单详情id
 	 */
@@ -12,7 +26,7 @@ public class OrdermainVo {
 	/**
 	 *  订单id
 	 */
-	private Integer orderId;
+	private String orderId;
 	/**
 	 *  图书id
 	 */
@@ -20,7 +34,7 @@ public class OrdermainVo {
 	/**
 	 *  交易价格
 	 */
-	private Double price;
+	private String price;
 	/**
 	 *  每本书的购买数量
 	 */
@@ -44,7 +58,7 @@ public class OrdermainVo {
 	 * 订单id
 	 * @param orderId
 	 */
-	public void setOrderId(Integer orderId){
+	public void setOrderId(String orderId){
 		this.orderId = orderId;
 	}
 	
@@ -52,7 +66,7 @@ public class OrdermainVo {
      * 订单id
      * @return Integer
      */	
-    public Integer getOrderId(){
+    public String getOrderId(){
     	return orderId;
     }
 	/**
@@ -74,7 +88,7 @@ public class OrdermainVo {
 	 * 交易价格
 	 * @param price
 	 */
-	public void setPrice(Double price){
+	public void setPrice(String price){
 		this.price = price;
 	}
 	
@@ -82,7 +96,7 @@ public class OrdermainVo {
      * 交易价格
      * @return Double
      */	
-    public Double getPrice(){
+    public String getPrice(){
     	return price;
     }
 	/**

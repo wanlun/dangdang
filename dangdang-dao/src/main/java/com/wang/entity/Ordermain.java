@@ -5,6 +5,7 @@ package com.wang.entity;
  * @author wangguangjun
  */
 public class Ordermain {
+
 	/**
 	 *  订单详情id
 	 */
@@ -12,7 +13,7 @@ public class Ordermain {
 	/**
 	 *  订单id
 	 */
-	private Integer orderId;
+	private String orderId;
 	/**
 	 *  图书id
 	 */
@@ -44,7 +45,7 @@ public class Ordermain {
 	 * 订单id
 	 * @param orderId
 	 */
-	public void setOrderId(Integer orderId){
+	public void setOrderId(String orderId){
 		this.orderId = orderId;
 	}
 	
@@ -52,7 +53,7 @@ public class Ordermain {
      * 订单id
      * @return
      */	
-    public Integer getOrderId(){
+    public String getOrderId(){
     	return orderId;
     }
 	/**

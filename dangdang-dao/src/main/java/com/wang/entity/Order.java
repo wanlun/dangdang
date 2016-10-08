@@ -8,7 +8,7 @@ public class Order {
 	/**
 	 *  订单id
 	 */
-	private Integer orderId;
+	private String orderId;
 	/**
 	 *  用户id
 	 */
@@ -20,7 +20,7 @@ public class Order {
 	/**
 	 *  订单总价
 	 */
-	private Double orderprice;
+	private String orderprice;
 	/**
 	 *  订单状态，1代表已付款，0未付款
 	 */
@@ -29,7 +29,7 @@ public class Order {
 	 * 订单id
 	 * @param orderId
 	 */
-	public void setOrderId(Integer orderId){
+	public void setOrderId(String orderId){
 		this.orderId = orderId;
 	}
 	
@@ -37,7 +37,7 @@ public class Order {
      * 订单id
      * @return
      */	
-    public Integer getOrderId(){
+    public String getOrderId(){
     	return orderId;
     }
 	/**
@@ -74,7 +74,7 @@ public class Order {
 	 * 订单总价
 	 * @param orderprice
 	 */
-	public void setOrderprice(Double orderprice){
+	public void setOrderprice(String orderprice){
 		this.orderprice = orderprice;
 	}
 	
@@ -82,7 +82,7 @@ public class Order {
      * 订单总价
      * @return
      */	
-    public Double getOrderprice(){
+    public String getOrderprice(){
     	return orderprice;
     }
 	/**

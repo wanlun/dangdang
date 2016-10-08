@@ -1,14 +1,29 @@
 package com.wang.vo;
 
+import java.util.List;
+
 /**
  * 
  * @author wangguangjun
  */
 public class OrderVo {
+
+	/***
+	 * 购买了几种书的集合
+	 */
+	private List<BookVo> bookVoList;
+
+	public List<BookVo> getBookVoList() {
+		return bookVoList;
+	}
+
+	public void setBookVoList(List<BookVo> bookVoList) {
+		this.bookVoList = bookVoList;
+	}
 	/**
 	 *  订单id
 	 */
-	private Integer orderId;
+	private String orderId;
 	/**
 	 *  用户id
 	 */
@@ -29,7 +44,7 @@ public class OrderVo {
 	 * 订单id
 	 * @param orderId
 	 */
-	public void setOrderId(Integer orderId){
+	public void setOrderId(String orderId){
 		this.orderId = orderId;
 	}
 	
@@ -37,7 +52,7 @@ public class OrderVo {
      * 订单id
      * @return Integer
      */	
-    public Integer getOrderId(){
+    public String getOrderId(){
     	return orderId;
     }
 	/**

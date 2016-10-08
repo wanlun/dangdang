@@ -1,4 +1,4 @@
-package com.wang.serivces.impl;
+package com.wang.serivces;
 
 import com.fc.platform.commons.page.Page;
 import com.wang.entity.Book;

@@ -1,7 +1,7 @@
 package com.wang.controll;
 
 import com.wang.entity.Book;
-import com.wang.serivces.BooksServices;
+import com.wang.serivces.impl.BooksServices;
 import com.wang.vo.BookVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
