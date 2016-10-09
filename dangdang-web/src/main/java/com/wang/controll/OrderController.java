@@ -12,6 +12,7 @@ import com.wang.vo.OrderVo;
 import com.wang.vo.OrdermainVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,7 +24,7 @@ import java.util.*;
  * Created by Administrator on 2016/10/8.
  */
 @Controller
-public class OrderController {
+public class OrderController extends BaseController {
     @Autowired
     private OrderServicesImpl orderServices;
 
@@ -34,6 +35,7 @@ public class OrderController {
     private Bookinterfacce booksServices;
 
     @RequestMapping("/addorder")
+    @Transactional
     public String addOrder(HttpSession session, OrdermainVo ordermainVo) {
         try {
         /*从Session对象中获取用户对象*/
@@ -50,15 +52,21 @@ public class OrderController {
             om.setUserId(user.getUserId());
             om.setBookVoList(bookVoList);
             boolean boo = orderServices.addorder(om);
-            session.setAttribute("car",null);
 
-              if(boo=true){
+
+
+              if(boo==true){
+
 
                   return "redirect:/findorder";
               }
         } catch (Exception ex) {
             ex.printStackTrace();
             return "redirect:/findallBooks1";
+        }
+
+  finally {
+            session.setAttribute("car",null);
         }
         return "redirect:/findorder";
 }
@@ -69,9 +77,9 @@ public class OrderController {
          o.setUserId(str.getUserId());
          List<Order> list = orderServices.findOrderByOrder(o);
 
-             List<String> bookPictureList = new ArrayList<String>();
-             List<OrderVo> orderVoList = new ArrayList<OrderVo>();
+                 List<OrderVo> orderVoList = new ArrayList<OrderVo>();
              for(Order order:list) {
+                 List<String> bookPictureList = new ArrayList<String>();
                  Map<String,String> orderMainMap = new HashMap<String, String>();
                  orderMainMap.put("orderId",order.getOrderId());
                  List<Ordermain> orderMainlist = ordermainMapper.searchOrdermainByParams(orderMainMap);

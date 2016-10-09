@@ -19,7 +19,7 @@ import java.util.Map;
  */
 
 @Controller
-public class ShopController {
+public class ShopController extends BaseController{
 
     @Autowired
     private BooksServicesImpl booksServicesImpl;
