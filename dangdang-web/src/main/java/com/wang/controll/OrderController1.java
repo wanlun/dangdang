@@ -23,26 +23,26 @@ public class OrderController1 {
 
     @Autowired
     private OrderServices1 orderServices1;
+
     @RequestMapping("/addorder1")
 
-    public String  addorder1(HttpSession session){
-        try{
-            User user=(User) session.getAttribute("user");
-             Map car=(Map)  session.getAttribute("car");
-               Collection<BookVo> collection= car.values();
-               List<BookVo> list=new LinkedList<BookVo>();
-                  for(BookVo g:collection){
-                      list.add(g);
-                  }
-               OrderVo orderVo=new OrderVo();
+    public String addorder1(HttpSession session) {
+        try {
+            User user = (User) session.getAttribute("user");
+            Map car = (Map) session.getAttribute("car");
+            Collection<BookVo> collection = car.values();
+            List<BookVo> list = new LinkedList<BookVo>();
+            for (BookVo g : collection) {
+                list.add(g);
+            }
+            OrderVo orderVo = new OrderVo();
             orderVo.setUserId(user.getUserId());
             orderVo.setBookVoList(list);
             orderServices1.insert(orderVo);
-              return "orderlist";
-        }
-        catch (Exception d){
+            return "orderlist";
+        } catch (Exception d) {
             d.printStackTrace();
-           return "shop";
+            return "shop";
 
 
         }
