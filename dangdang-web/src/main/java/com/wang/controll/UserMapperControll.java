@@ -15,13 +15,12 @@ import javax.servlet.http.HttpSession;
  * Created by Administrator on 2016/10/6.
  */
 @Controller
-public class UserMapperControll {
+public class UserMapperControll extends  BaseController {
     @Autowired
     private UserService userService;
 
    //判断是否有该用户
     @RequestMapping("/check")
-
     public String check(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord,HttpSession session) {
        User user = userService.find(userName, passWord);
         if (user==null){

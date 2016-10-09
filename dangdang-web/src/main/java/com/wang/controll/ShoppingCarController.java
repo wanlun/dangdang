@@ -1,16 +1,8 @@
 package com.wang.controll;
 
-import com.wang.entity.Book;
-import com.wang.serivces.impl.BooksServices;
-import com.wang.vo.BookVo;
+import com.wang.serivces.impl.BooksServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2016/10/7.
@@ -18,7 +10,7 @@ import java.util.Map;
 @Controller
 public class ShoppingCarController {
       @Autowired
-     private BooksServices booksServices;
+     private BooksServicesImpl booksServicesImpl;
 
       /*@RequestMapping("/putshoppingcar")
       public  String putshoppingcar(@RequestParam("bookId")String[] bookId,HttpSession session){
