@@ -5,6 +5,7 @@ import com.fc.platform.commons.page.PageRequest;
 import com.wang.entity.Book;
 import com.wang.mapper.BookMapper;
 import com.wang.serivces.Bookinterfacce;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,7 +18,7 @@ import java.util.Map;
  */
 @Service
 public class BooksServicesImpl implements Bookinterfacce {
-    @Resource
+    @Autowired
     private BookMapper bookMapper;
 
 
