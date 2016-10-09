@@ -21,7 +21,6 @@ public class UserMapperControll extends  BaseController {
 
    //判断是否有该用户
     @RequestMapping("/check")
-
     public String check(@RequestParam("userName") String userName, @RequestParam("passWord") String passWord,HttpSession session) {
        User user = userService.find(userName, passWord);
         if (user==null){
