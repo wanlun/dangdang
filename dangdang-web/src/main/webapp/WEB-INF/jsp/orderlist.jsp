@@ -20,10 +20,10 @@
   <div id="navbar">
     <div class="userMenu">
       <ul>
-        <li><a href="index.html">${user.userName}首页</a></li>
-        <li class="current"><a href="orderlist.html">我的订单</a></li>
-        <li><a href="shopping.html">购物车</a></li>
-        <li><a href="#">注销</a></li>
+        <li><a href="findallBooks1">${user.userName}首页</a></li>
+        <li class="current"><a href="addorder">我的订单</a></li>
+        <li><a href="putcar">购物车</a></li>
+        <li><a href="des">注销</a></li>
       </ul>
     </div>
     <form method="get" name="search" action="">

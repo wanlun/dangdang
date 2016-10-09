@@ -50,7 +50,10 @@ public class OrderController {
             om.setUserId(user.getUserId());
             om.setBookVoList(bookVoList);
             boolean boo = orderServices.addorder(om);
+            session.setAttribute("car",null);
+
               if(boo=true){
+
                   return "redirect:/findorder";
               }
         } catch (Exception ex) {
@@ -59,14 +62,13 @@ public class OrderController {
         }
         return "redirect:/findorder";
 }
-         @RequestMapping("findorder")
+         @RequestMapping("/findorder")
      public String orderList(HttpSession session,ModelMap modelMap) {
         User str= (User)session.getAttribute("user");
-
-         Order o=new Order();
+             Order o=new Order();
          o.setUserId(str.getUserId());
          List<Order> list = orderServices.findOrderByOrder(o);
-             System.out.println(list);
+
              List<String> bookPictureList = new ArrayList<String>();
              List<OrderVo> orderVoList = new ArrayList<OrderVo>();
              for(Order order:list) {
@@ -87,6 +89,7 @@ public class OrderController {
                  orderVoList.add(orderVo);
              }
          modelMap.put("orderVoList",orderVoList);
+
          return "orderlist";
          }
 }
