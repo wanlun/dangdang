@@ -62,6 +62,7 @@ public class OrderController {
          @RequestMapping("findorder")
      public String orderList(HttpSession session,ModelMap modelMap) {
         User str= (User)session.getAttribute("user");
+
          Order o=new Order();
          o.setUserId(str.getUserId());
          List<Order> list = orderServices.findOrderByOrder(o);
@@ -87,6 +88,8 @@ public class OrderController {
              }
          modelMap.put("orderVoList",orderVoList);
          return "orderlist";
+
+
      }
 }
 
