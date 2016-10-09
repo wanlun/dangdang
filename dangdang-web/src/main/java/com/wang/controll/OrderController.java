@@ -5,7 +5,7 @@ import com.wang.entity.Ordermain;
 import com.wang.entity.User;
 import com.wang.mapper.OrdermainMapper;
 import com.wang.serivces.Bookinterfacce;
-import com.wang.serivces.impl.BooksServices;
+
 import com.wang.serivces.impl.OrderServicesImpl;
 import com.wang.vo.BookVo;
 import com.wang.vo.OrderVo;
@@ -31,7 +31,7 @@ public class OrderController {
     private OrdermainMapper ordermainMapper;
 
     @Autowired
-    private BooksServices booksServices;
+    private Bookinterfacce booksServices;
 
     @RequestMapping("/addorder")
     public String addOrder(HttpSession session, OrdermainVo ordermainVo) {

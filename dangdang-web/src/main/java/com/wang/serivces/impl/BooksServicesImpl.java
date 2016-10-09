@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by Administrator on 2016/10/6.
  */
 @Service
-public class BooksServices implements Bookinterfacce {
+public class BooksServicesImpl implements Bookinterfacce {
 
     @Autowired
     private BookMapper bookMapper;
@@ -26,8 +26,8 @@ public class BooksServices implements Bookinterfacce {
     /*   这个是查询全部的方法，这个是没有进行分页的*/
     @Override
     public List<Book> findall() {
-          List<Book> books=bookMapper.searchBookByParams(null);
-            return books;
+        List<Book> books=bookMapper.searchBookByParams(null);
+        return books;
     }
 
     @Override
@@ -40,23 +40,23 @@ public class BooksServices implements Bookinterfacce {
 
     public Book findbyId(String bookId) {
         Map s=new HashMap();
-         s.put("bookId",bookId);
-         List<Book> list=bookMapper.searchBookByParams(s);
-          if(list.size()==1){
-              return list.get(0);
-          }
-         else
-              return null;
+        s.put("bookId",bookId);
+        List<Book> list=bookMapper.searchBookByParams(s);
+        if(list.size()==1){
+            return list.get(0);
+        }
+        else
+            return null;
     }
 
     @Override
-       public int deleteByBookId(Integer bookId) {
+    public int deleteByBookId(Integer bookId) {
         int m= bookMapper.deleteBookByBookId(bookId);
-          if(m!=0){
-              return m;
-          }
-          else
-              return -1;
+        if(m!=0){
+            return m;
+        }
+        else
+            return -1;
     }
 
 }

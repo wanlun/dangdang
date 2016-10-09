@@ -3,7 +3,8 @@ package com.wang.controll;
 import com.fc.platform.commons.page.Page;
 import com.wang.entity.Book;
 import com.wang.serivces.Bookinterfacce;
-import com.wang.serivces.impl.BooksServices;
+
+import com.wang.serivces.impl.BooksServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,11 +20,11 @@ import java.util.List;
 @Controller
 public class BookController  extends BaseController{
       @Autowired
-      private BooksServices booksServices;
+      private BooksServicesImpl booksServicesimpl;
 
       @RequestMapping("/findallBooks")
       public  String findallbooks(ModelMap modelMap){
-          List<Book> books=booksServices.findall();
+          List<Book> books=booksServicesimpl.findall();
               modelMap.put("books",books);
            return "index" ;
       }
@@ -33,14 +34,14 @@ public class BookController  extends BaseController{
         if(page<0){
             page=0;
         }
-            Page<Book> pages=booksServices.findpageall(page, 4);
+            Page<Book> pages=booksServicesimpl.findpageall(page, 4);
              List<Book> boo=pages.getContent();
         System.out.println(boo);
           //获得总的条数
               int  yeshu=pages.getTotalPages()-1;
         if (page>yeshu){
             page=yeshu;
-            pages=booksServices.findpageall(page, 4);
+            pages=booksServicesimpl.findpageall(page, 4);
             boo=pages.getContent();
         }
 
@@ -54,7 +55,7 @@ public class BookController  extends BaseController{
     @RequestMapping("/shanBooks")
     @ResponseBody
     public  int findallbooks(@RequestParam("bookId") int bookId ){
-            int s= booksServices.deleteByBookId(bookId);
+            int s= booksServicesimpl.deleteByBookId(bookId);
             return s;
     }
 
